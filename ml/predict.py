@@ -1,5 +1,6 @@
 import pickle
 import sys
+import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 if len(sys.argv) < 3:
@@ -12,8 +13,8 @@ elif len(sys.argv) >4:
     sys.exit()
 
 
-MDL_PKL_FILENAME = sys.argv[1] + "/" + 'svc_model.sav'
-VCT_PKL_FILENAME = sys.argv[1] + "/" + 'tfidf_vect.sav'
+MDL_PKL_FILENAME = os.path.join(sys.argv[1], 'svc_model.sav')
+VCT_PKL_FILENAME = os.path.join(sys.argv[1], 'tfidf_vect.sav')
 
 usr_inp = sys.argv[2]
 print("User input: {}\n".format(usr_inp))

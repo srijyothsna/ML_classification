@@ -1,4 +1,5 @@
 import sys
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -14,8 +15,8 @@ if len(sys.argv) < 3:
     sys.exit(1)
 
 # Pickle file paths
-MDL_PKL_FILENAME = sys.argv[2] + "/"  + 'svc_model.sav'
-VCT_PKL_FILENAME = sys.argv[2] + "/" + 'tfidf_vect.sav'
+MDL_PKL_FILENAME = os.path.join(sys.argv[2], 'svc_model.sav')
+VCT_PKL_FILENAME = os.path.join(sys.argv[2], 'tfidf_vect.sav')
 
 all_df = pd.read_csv(sys.argv[1], sep ='\t', delimiter='\t', header=0)
 col = ['icd10encounterdiagcode', 'A/P'] # target, feature
